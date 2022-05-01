@@ -3,10 +3,11 @@ import styles from './Table.module.css';
 import SortSvg from '../common/Svg/SortSvg';
 
 
-function Table() {
+function Table({ data }) {
     return (
         <div>
             <table>
+            <thead>
                 <tr className={styles.tableHeader}>
                     <th>
                         ID
@@ -21,16 +22,16 @@ function Table() {
                         <SortSvg />
                     </th>
                 </tr>
-                <tr>
-                    <td className={styles.tableId}>1</td>
-                    <td className={styles.tableData}>sunt aut facere repellat provident occaecati excepturi optio reprehenderit</td>
-                    <td className={styles.tableData}>quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto</td>
-                </tr>
-                <tr>
-                    <td className={styles.tableId}>1</td>
-                    <td className={styles.tableData}>sunt aut facere repellat provident occaecati excepturi optio reprehenderit</td>
-                    <td className={styles.tableData}>quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto</td>
-                </tr>
+                </thead>
+                <tbody>
+                {data.map(item => {
+                    return <tr key={item.id} >
+                        <td className={styles.tableId}>{item.id}</td>
+                        <td className={styles.tableData}>{item.title}</td>
+                        <td className={styles.tableData}>{item.body}</td>
+                    </tr>
+                })}
+                </tbody>
             </table>
         </div>
     )

@@ -1,13 +1,15 @@
 import React from 'react'
 import styles from './Paginator.module.css'
 
-function Paginator() {
+function Paginator({pagesCount}) {
+  const pages = Array(pagesCount).fill().map((e, i) => i + 1);
+  
   return (
     <div className={styles.paginatorBlock}>
       <span className={styles.button}>Назад</span>
       <span>
-      {[1, 2, 3, 4, 5].map(num => {
-        return <span className={styles.pageNumbs}> {num} </span>
+      {pages.map(num => {
+        return <span key={num} className={styles.pageNumbs}> {num} </span>
       })}
       </span>
       
