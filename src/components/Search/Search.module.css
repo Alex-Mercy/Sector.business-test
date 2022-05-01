@@ -1,0 +1,15 @@
+.searchBlock {
+    width: 58%;
+    height: 52px;
+    background: #5A5C66;
+}
+
+.input {
+    width: 85%;
+    margin: 14px 0 14px 3%; 
+    padding: 5px;
+    background: #5A5C66;
+    color: white;
+    outline: none;
+    border: none;
+}

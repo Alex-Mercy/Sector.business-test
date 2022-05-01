@@ -1,0 +1,20 @@
+.paginatorBlock {
+    margin: 16px 43px;
+    display: flex;
+    justify-content: space-between;
+    color: #474955;
+}
+
+.button {
+    font-weight: bold;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.pageNumbs {
+    font-style: italic;
+    font-size: 18px;
+    padding: 0 5px;
+    cursor: pointer;
+}
+
