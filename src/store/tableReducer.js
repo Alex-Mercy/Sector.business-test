@@ -2,12 +2,15 @@ const ON_SET_DATA = 'ON_SET_DATA';
 const SET_DATA = 'SET_DATA';
 const SET_LOADED = 'SET_LOADED';
 const SET_DATA_FAILURE = 'SET_DATA_FAILURE';
+const SEARCH_VALUE = 'SEARCH_VALUE';
 
 const initialState = {
     isLoaded: false,
     data: [],
     error: null,
     pagesCount: 5,
+    searchValue: '',
+
 };
 
 
@@ -30,6 +33,11 @@ const tableReducer = (state = initialState, action) => {
                 ...state,
                 error: action.payload,
             }; 
+            case SEARCH_VALUE:
+            return {
+                ...state,
+                searchValue: action.payload,
+            };
         default:
             return state;
     }
@@ -54,6 +62,11 @@ export const setDataFailure = (error) => ({
     type: SET_DATA_FAILURE,
     payload: error,
   });
+
+  export const addSearchValue = (value) => ({
+    type: SEARCH_VALUE,
+    payload: value,
+});
 
 
 export default tableReducer;

@@ -9,7 +9,7 @@ import { onSetData } from '../../store/tableReducer';
 
 function TablePage() {
     const dispatch = useDispatch();
-    const {data, pagesCount} = useSelector(({ table }) => table);
+    const {data, pagesCount, searchValue} = useSelector(({ table }) => table);
 
     React.useEffect(() => {
         dispatch(onSetData());
@@ -18,8 +18,8 @@ function TablePage() {
 
     return (
         <div className={styles.wrapper}>
-            <Search/>
-            <Table data={data} />
+            <Search searchValue={searchValue} />
+            <Table data={data} searchValue={searchValue} />
             <Paginator pagesCount={pagesCount} />
         </div>
     )
