@@ -1,19 +1,57 @@
 import React from 'react'
-import styles from './Paginator.module.css'
+import cn from "classnames";
+import { useSelector, useDispatch, } from 'react-redux';
 
-function Paginator({pagesCount}) {
+import styles from './Paginator.module.css'
+import { decrementPage, incrementPage, setCurrentPage } from '../../../store/tableReducer';
+
+function Paginator() {
+  const dispatch = useDispatch();
+  const { currentPage, perPage, totalCount } = useSelector(({ table }) => table);
+
+  const pagesCount = Math.ceil(totalCount / perPage);
   const pages = Array(pagesCount).fill().map((e, i) => i + 1);
-  
+  console.log(pagesCount);
+
+  const onIncrementPage = () => {
+    if (currentPage < 10) {
+      dispatch(incrementPage())
+    }
+  }
+
+  const onDecrementPage = () => {
+    if (currentPage > 1) {
+      dispatch(decrementPage())
+    }
+  }
+
+
   return (
     <div className={styles.paginatorBlock}>
-      <span className={styles.button}>Назад</span>
-      <span>
-      {pages.map(num => {
-        return <span key={num} className={styles.pageNumbs}> {num} </span>
-      })}
+      <span
+        className={styles.button}
+        onClick={onDecrementPage}
+      >Назад
       </span>
-      
-      <span className={styles.button}>Далее</span>
+      <span>
+        {pages.map((page, index) => {
+          return <span
+            key={index}
+            className={cn({
+              [styles.selectedPage]: currentPage === page
+            }, styles.pageNumb)}
+            onClick={() => dispatch(setCurrentPage(page))}
+          >
+            {page}
+          </span>
+        })}
+      </span>
+
+      <span
+        className={styles.button}
+        onClick={onIncrementPage}
+      >Далее
+      </span>
     </div>
   )
 }

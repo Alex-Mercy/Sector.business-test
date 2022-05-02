@@ -9,11 +9,11 @@ import { onSetData, setSortBy, toggleOrder } from '../../store/tableReducer';
 
 function TablePage() {
     const dispatch = useDispatch();
-    const {data, pagesCount, searchValue, sortBy, ascOrder} = useSelector(({ table }) => table);
+    const {data, searchValue, sortBy, ascOrder, currentPage} = useSelector(({ table }) => table);
 
     React.useEffect(() => {
-        dispatch(onSetData({sortBy, ascOrder}));
-    }, [dispatch, sortBy, ascOrder]);
+        dispatch(onSetData({sortBy, ascOrder, currentPage}));
+    }, [dispatch, sortBy, ascOrder, currentPage]);
 
     const onChangeSortType = (sortBy) => {
         dispatch(setSortBy(sortBy));
@@ -30,7 +30,7 @@ function TablePage() {
             searchValue={searchValue}
             onChangeSortType={onChangeSortType}
              />
-            <Paginator pagesCount={pagesCount} />
+            <Paginator/>
         </div>
     )
 }

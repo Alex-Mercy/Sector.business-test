@@ -11,10 +11,14 @@
     cursor: pointer;
 }
 
-.pageNumbs {
+.pageNumb {
     font-style: italic;
     font-size: 18px;
     padding: 0 5px;
-    cursor: pointer;
+    cursor: pointer;   
+}
+
+.selectedPage {
+    color: #7EBC3C;
 }
 
