@@ -9,4 +9,5 @@
 .searchSvg {
     vertical-align: bottom;
     margin-bottom: 16px;
+    cursor: pointer;
 }

@@ -5,10 +5,12 @@ import { getData } from './api';
 
 const ON_SET_DATA = 'ON_SET_DATA';
 
-export function* setDataSaga({ payload: {sortBy, ascOrder, currentPage}  }) {
+export function* setDataSaga({ payload: {sortBy, ascOrder, currentPage, searchValue}  }) {
+
+  console.log(searchValue);
   try {
     yield put(setLoaded(false));
-    const response = yield getData(sortBy, ascOrder, currentPage);
+    const response = yield getData(sortBy, ascOrder, currentPage, searchValue);
     yield put(setData(response.data))
   } catch (error) {
     yield put(setDataFailure(error));

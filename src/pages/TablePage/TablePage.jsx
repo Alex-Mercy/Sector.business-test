@@ -12,19 +12,16 @@ function TablePage() {
     const {data, searchValue, sortBy, ascOrder, currentPage} = useSelector(({ table }) => table);
 
     React.useEffect(() => {
-        dispatch(onSetData({sortBy, ascOrder, currentPage}));
-    }, [dispatch, sortBy, ascOrder, currentPage]);
+        dispatch(onSetData({sortBy, ascOrder, currentPage, searchValue}));
+    }, [dispatch, sortBy, ascOrder, currentPage, searchValue]);
 
     const onChangeSortType = (sortBy) => {
         dispatch(setSortBy(sortBy));
     };
 
-
-
     return (
         <div className={styles.wrapper}>
             <Search 
-            searchValue={searchValue} 
             />
             <Table data={data} 
             searchValue={searchValue}

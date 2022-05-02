@@ -1,14 +1,22 @@
 import React from 'react'
+import { useState } from 'react';
+import { useDispatch, } from 'react-redux';
+
 import { addSearchValue } from '../../store/tableReducer';
 import SearchSvg from '../common/Svg/SearchSvg';
 import styles from './Search.module.css';
-import { useDispatch, } from 'react-redux';
 
-function Search({searchValue}) {
+function Search() {
   const dispatch = useDispatch();
+
+  const [searchValue, setSearchValue] = useState("");
   
   const handleChange = (e) => {
-    dispatch(addSearchValue(e.target.value));
+    setSearchValue(e.target.value);
+  }
+
+  const handleClick = () => {
+    dispatch(addSearchValue(searchValue));
   }
 
   return (
@@ -21,7 +29,7 @@ function Search({searchValue}) {
         value={searchValue}
         onChange={handleChange}
         />
-          <SearchSvg/>
+          <SearchSvg findValue={handleClick} />
     </div>
   )
 }
