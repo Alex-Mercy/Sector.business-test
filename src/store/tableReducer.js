@@ -3,6 +3,8 @@ const SET_DATA = 'SET_DATA';
 const SET_LOADED = 'SET_LOADED';
 const SET_DATA_FAILURE = 'SET_DATA_FAILURE';
 const SEARCH_VALUE = 'SEARCH_VALUE';
+const SET_SORT_BY = 'SET_SORT_BY';
+const TOGGLE_ORDER = 'TOGGLE_ORDER';
 
 const initialState = {
     isLoaded: false,
@@ -10,6 +12,8 @@ const initialState = {
     error: null,
     pagesCount: 5,
     searchValue: '',
+    sortBy: 'id',
+    ascOrder: true
 
 };
 
@@ -38,14 +42,25 @@ const tableReducer = (state = initialState, action) => {
                 ...state,
                 searchValue: action.payload,
             };
+            case SET_SORT_BY:
+            return {
+                ...state,
+                sortBy: action.payload,
+            };
+            case TOGGLE_ORDER:
+            return {
+                ...state,
+                ascOrder: action.payload,
+            };
         default:
             return state;
     }
 
 }
 
-export const onSetData= () => ({
+export const onSetData= (data) => ({
     type: ON_SET_DATA,
+    payload: data
 });
 
 export const setLoaded = (payload) => ({
@@ -55,7 +70,8 @@ export const setLoaded = (payload) => ({
 
 export const setData = (data) => ({
     type: SET_DATA,
-    payload: data
+    payload: data,
+    
 })
 
 export const setDataFailure = (error) => ({
@@ -66,6 +82,16 @@ export const setDataFailure = (error) => ({
   export const addSearchValue = (value) => ({
     type: SEARCH_VALUE,
     payload: value,
+});
+
+export const setSortBy = (type) => ({
+    type: 'SET_SORT_BY',
+    payload: type,
+});
+
+export const toggleOrder = (ascOrder) => ({
+    type: 'TOGGLE_ORDER',
+    payload: ascOrder,
 });
 
 

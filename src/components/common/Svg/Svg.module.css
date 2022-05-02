@@ -1,6 +1,9 @@
 .sortSvg{
-    margin-left: 30px;
-    
+    margin-left: 30px;    
+}
+
+.rotatedSvg {
+    transform: rotate(180deg);
 }
 
 .searchSvg {
