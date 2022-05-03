@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/Sector.business-test/static/css/main.5569b6e6.chunk.css",
+    "main.js": "/Sector.business-test/static/js/main.0a2cf9bd.chunk.js",
+    "main.js.map": "/Sector.business-test/static/js/main.0a2cf9bd.chunk.js.map",
+    "runtime-main.js": "/Sector.business-test/static/js/runtime-main.0e67e058.js",
+    "runtime-main.js.map": "/Sector.business-test/static/js/runtime-main.0e67e058.js.map",
+    "static/js/2.926e53e6.chunk.js": "/Sector.business-test/static/js/2.926e53e6.chunk.js",
+    "static/js/2.926e53e6.chunk.js.map": "/Sector.business-test/static/js/2.926e53e6.chunk.js.map",
+    "index.html": "/Sector.business-test/index.html",
+    "precache-manifest.122f8f72f4b29042880043b7e5d0fe4e.js": "/Sector.business-test/precache-manifest.122f8f72f4b29042880043b7e5d0fe4e.js",
+    "service-worker.js": "/Sector.business-test/service-worker.js",
+    "static/css/main.5569b6e6.chunk.css.map": "/Sector.business-test/static/css/main.5569b6e6.chunk.css.map",
+    "static/media/Preloader.gif": "/Sector.business-test/static/media/Preloader.3fdbc940.gif"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.0e67e058.js",
+    "static/js/2.926e53e6.chunk.js",
+    "static/css/main.5569b6e6.chunk.css",
+    "static/js/main.0a2cf9bd.chunk.js"
+  ]
+}
