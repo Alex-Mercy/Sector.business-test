@@ -1,6 +1,5 @@
 import React from 'react'
 import styles from './Svg.module.css'
-import { useSelector, useDispatch, } from 'react-redux';
 
 function SearchSvg({findValue}) {
     

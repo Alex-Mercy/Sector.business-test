@@ -7,7 +7,7 @@ import { toggleOrder } from '../../../store/tableReducer';
 
 function SortSvg() {
     const dispatch = useDispatch();
-    const {sortBy, ascOrder} = useSelector(({ table }) => table);
+    const {ascOrder} = useSelector(({ table }) => table);
 
     const changeSortOrder =() => {
         dispatch(toggleOrder(!ascOrder));
