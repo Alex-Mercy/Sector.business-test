@@ -15,16 +15,15 @@ function TablePage() {
         dispatch(onSetData({sortBy, ascOrder, currentPage, searchValue}));
     }, [dispatch, sortBy, ascOrder, currentPage, searchValue]);
 
-    const onChangeSortType = (sortBy) => {
-        dispatch(setSortBy(sortBy));  
-    };
+    const onChangeSortType = React.useCallback((sortBy) => {
+        dispatch(setSortBy(sortBy));
+    }, [dispatch]);
 
     return (
         <div className={styles.wrapper}>
             <Search 
             />
             <Table data={data} 
-            searchValue={searchValue}
             onChangeSortType={onChangeSortType}
             isLoaded={isLoaded}
              />

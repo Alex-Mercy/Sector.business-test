@@ -5,7 +5,7 @@ import styles from './Svg.module.css'
 import { useSelector, useDispatch, } from 'react-redux';
 import { toggleOrder } from '../../../store/tableReducer';
 
-function SortSvg() {
+const SortSvg = React.memo(() => {
     const dispatch = useDispatch();
     const {ascOrder} = useSelector(({ table }) => table);
 
@@ -24,5 +24,6 @@ function SortSvg() {
 
     )
 }
+)
 
 export default SortSvg

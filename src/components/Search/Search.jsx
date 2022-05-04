@@ -6,18 +6,17 @@ import { addSearchValue } from '../../store/tableReducer';
 import SearchSvg from '../common/Svg/SearchSvg';
 import styles from './Search.module.css';
 
-function Search() {
+const Search = React.memo(() => {
   const dispatch = useDispatch();
-
   const [searchValue, setSearchValue] = useState("");
   
   const handleChange = (e) => {
     setSearchValue(e.target.value);
   }
 
-  const handleClick = () => {
+  const handleClick = React.useCallback(() => {
     dispatch(addSearchValue(searchValue));
-  }
+}, [dispatch, searchValue]);
 
   return (
     <div className={styles.searchBlock}>
@@ -33,6 +32,6 @@ function Search() {
     </div>
   )
 }
-
+)
 
 export default Search;

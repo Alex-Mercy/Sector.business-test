@@ -6,7 +6,7 @@ import styles from './Paginator.module.css'
 import { decrementPage, incrementPage, setCurrentPage } from '../../../store/tableReducer';
 import { Link} from 'react-router-dom';
 
-function Paginator() {
+const Paginator = React.memo(() => {
   const dispatch = useDispatch();
   const { currentPage, perPage, totalCount } = useSelector(({ table }) => table);
 
@@ -59,5 +59,6 @@ function Paginator() {
     </div>
   )
 }
+)
 
 export default Paginator

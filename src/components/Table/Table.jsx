@@ -4,12 +4,8 @@ import SortSvg from '../common/Svg/SortSvg';
 import Loader from '../common/Loader/Loader';
 
 
-function Table({ data, searchValue, onChangeSortType, isLoaded }) {
-
-    const filteredData = data.filter(
-        item => Object.values(item).join(' ').toLowerCase().includes(searchValue)
-    );
-
+const  Table = React.memo(({ data, onChangeSortType, isLoaded }) => {
+    
     const headers = [
         { name: 'ID', type: 'id', },
         { name: 'Заголовок', type: 'title' },
@@ -36,7 +32,7 @@ function Table({ data, searchValue, onChangeSortType, isLoaded }) {
             </tr>
         </thead>
             <tbody>
-            {filteredData.map(item => {
+            {data.map(item => {
                 return <tr key={item.id} >
                     <td className={styles.tableId}>{item.id}</td>
                     <td className={styles.tableData}>{item.title}</td>
@@ -49,5 +45,6 @@ function Table({ data, searchValue, onChangeSortType, isLoaded }) {
         </div>
     )
 }
+)
 
 export default Table
